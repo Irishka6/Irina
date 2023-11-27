@@ -3,7 +3,6 @@ import io
 import random
 from PyQt5 import uic
 from PyQt5.QtGui import QPainter, QColor
-from PyQt5.QtCore import Qt, QPointF
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
 t = """<?xml version="1.0" encoding="UTF-8"?>
@@ -69,7 +68,8 @@ class Ellips(QMainWindow):
             qp = QPainter()
             qp.begin(self)
             p = random.randrange(20, 1000)
-            qp.setBrush(QColor('#ffff00'))
+            r, g, b = random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)
+            qp.setBrush(QColor(r, g, b))
             qp.drawEllipse(self.x - (p // 4), self.y - (p // 4), (p // 2), (p // 2))
             qp.end()
         self.do_paint = False
